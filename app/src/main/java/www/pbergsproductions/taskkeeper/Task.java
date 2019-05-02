@@ -3,6 +3,7 @@ package www.pbergsproductions.taskkeeper;
 import java.util.Date;
 
 public class Task {
+    private int id;
     private String name;
     private Date dueDate;
     private int priority;
@@ -12,14 +13,16 @@ public class Task {
         super();
     }
 
-    public Task(String name, Date dueDate, int priority, String description) {
+    public Task(int id, String name, Date dueDate, int priority, String description) {
+        this.id = id;
         this.name = name;
         this.dueDate = dueDate;
         this.priority = priority;
         this.description = description;
     }
 
-    public Task(String name, Date dueDate, int priority) {
+    public Task(int id, String name, Date dueDate, int priority) {
+        this.id = id;
         this.name = name;
         this.dueDate = dueDate;
         this.priority = priority;
@@ -28,11 +31,20 @@ public class Task {
     @Override
     public String toString() {
         return "Task{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", dueDate=" + dueDate +
                 ", priority=" + priority +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
