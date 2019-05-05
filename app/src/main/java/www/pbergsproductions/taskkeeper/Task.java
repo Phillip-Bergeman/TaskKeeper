@@ -5,7 +5,7 @@ import java.util.Date;
 public class Task {
     private int id;
     private String name;
-    private Date dueDate;
+    private String dueDate;
     private int priority;
     private String description;
 
@@ -13,7 +13,7 @@ public class Task {
         super();
     }
 
-    public Task(int id, String name, Date dueDate, int priority, String description) {
+    public Task(int id, String name, String dueDate, int priority, String description) {
         this.id = id;
         this.name = name;
         this.dueDate = dueDate;
@@ -21,11 +21,11 @@ public class Task {
         this.description = description;
     }
 
-    public Task(int id, String name, Date dueDate, int priority) {
-        this.id = id;
+    public Task(String name, String dueDate, int priority, String description) {
         this.name = name;
         this.dueDate = dueDate;
         this.priority = priority;
+        this.description = description;
     }
 
     @Override
@@ -55,11 +55,11 @@ public class Task {
         this.name = name;
     }
 
-    public Date getDueDate() {
+    public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 
