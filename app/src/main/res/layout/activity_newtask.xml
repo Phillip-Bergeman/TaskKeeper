@@ -13,8 +13,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="@string/task_name"
         android:inputType="textPersonName"
-        android:text="Task Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,12 +28,12 @@
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <Spinner
-        android:id="@+id/spinnerpriority"
+        android:id="@+id/spinnerPriority"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:prompt="Priority"
+        android:prompt="@string/priority"
         android:spinnerMode="dropdown"
         android:entries="@array/priorities"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,10 +46,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="@string/description"
         android:inputType="textPersonName"
-        android:text="Description"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerpriority" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerPriority" />
 
     <Button
         android:id="@+id/submit"
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:onClick="submitTask"
-        android:text="Submit"
+        android:text="@string/submit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description" />
 
