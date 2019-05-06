@@ -31,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         MyDBHandler myDBHandler = new MyDBHandler(this);
+        myTasks = myDBHandler.getAllTasks();
+
+        for(Task t : myTasks) {
+            Log.d(TAG, "onCreate: List: " + t.toString());
+        }
         /*myTasks = myDBHandler.getAllTasks();
         while (!myTasks.isEmpty()) {
             myDBHandler.deleteTask(myTasks.get(0));

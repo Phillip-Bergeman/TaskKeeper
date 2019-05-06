@@ -10,6 +10,9 @@ import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import java.util.Calendar;
+import java.util.TimeZone;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +22,10 @@ public class NewTaskActivity extends MainActivity implements AdapterView.OnItemS
     private EditText mName;
     private EditText mDesc;
     private CalendarView mCalendarView;
-    String name;
-    String dueDate;
-    int priority;
-    String description;
+    String name = "";
+    int priority = 10;
+    String description = "";
+
     public static final String EXTRA_NAME =
             "com.example.android.twoactivities.extra.NAME";
     public static final String EXTRA_DATE=
@@ -31,7 +34,13 @@ public class NewTaskActivity extends MainActivity implements AdapterView.OnItemS
             "com.example.android.twoactivities.extra.PRIORITY";
     public static final String EXTRA_DESC =
             "com.example.android.twoactivities.extra.DESC";
-    MyDBHandler myDBHandler = new MyDBHandler(this);
+
+    Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+
+    int currentYear = calendar.get(Calendar.YEAR);
+    int currentMonth = calendar.get(Calendar.MONTH) + 1;
+    int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+    String dueDate = currentDay + "-" + currentMonth + "-" + currentYear;
 
 
     protected void onCreate(Bundle savedInstanceStace) {
@@ -71,7 +80,7 @@ public class NewTaskActivity extends MainActivity implements AdapterView.OnItemS
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
+        priority = 10;
     }
 
     public void submitTask(View view) {
