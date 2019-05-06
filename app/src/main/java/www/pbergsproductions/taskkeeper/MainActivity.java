@@ -1,11 +1,13 @@
 package www.pbergsproductions.taskkeeper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +98,13 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(TAG, "onCreate: Task Count: " + count);*/
 
+
+
     }
 
+    public void newTask(View view) {
+        Intent intent = new Intent(getApplicationContext(), NewTaskActivity.class);
+
+        this.startActivity(intent);
+    }
 }
