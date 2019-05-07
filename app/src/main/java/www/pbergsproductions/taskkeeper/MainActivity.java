@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public String date;
     public int priority;
     public String desc;
+    MyDBHandler myDBHandler;
 
 
     @Override
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         }
         Task testTask = new Task("Dishes", "Now", 1, "Carefully");
         myDBHandler.addTask(new Task("Laundry", "Soon", 1, "Wash clothes"));
-        myDBHandler.addTask(new Task(testTask.getName(), testTask.getDueDate(), testTask.getPriority(), testTask.getDescription()));*/
+        myDBHandler.addTask(new Task(testTask.getName(), testTask.getDueDate(), testTask.getPriority(), testTask.getDescription()));/**/
         myTasks = myDBHandler.getAllTasks();
         recyclerView = findViewById(R.id.recycler_view);
         myAdapter = new TaskAdapter(myTasks);
@@ -53,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(myLayoutManager);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+
+
 
         //The below collapsed code was used for testing the database.  use with caution
         /*Task testTask = new Task("Dishes", "Now", 1, "Carefully");
@@ -107,9 +112,8 @@ public class MainActivity extends AppCompatActivity {
 
         count = myDBHandler.getTaskCount();
 
-        Log.d(TAG, "onCreate: Task Count: " + count);*/
-
-
+        Log.d(TAG, "onCreate: Task Count: " + count);
+        /* */
 
     }
 
@@ -143,5 +147,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(myLayoutManager);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+    }
+
+    public void removeTask(View view) {
+        Intent intent = new Intent(this, RemoveTaskActivity.class);
+        startActivityForResult(intent, TEXT_REQUEST);
     }
 }

@@ -9,16 +9,13 @@ import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
-import java.util.Calendar;
-import java.util.TimeZone;
-import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
-public class NewTaskActivity extends MainActivity implements AdapterView.OnItemSelectedListener {
-
+public class EditTaskActivity extends MainActivity implements AdapterView.OnItemSelectedListener{
     private EditText mName;
     private EditText mDesc;
     private CalendarView mCalendarView;
