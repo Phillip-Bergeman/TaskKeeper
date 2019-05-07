@@ -1,5 +1,6 @@
 package www.pbergsproductions.taskkeeper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,6 +25,16 @@ public class RemoveTaskActivity extends MainActivity implements AdapterView.OnIt
     public Task target;
     public int id;
     MyDBHandler myDBHandler;
+    public static final String EXTRA_ID =
+            "com.example.android.twoactivities.extra.ID";
+    public static final String EXTRA_NAME =
+            "com.example.android.twoactivities.extra.NAME";
+    public static final String EXTRA_DATE=
+            "com.example.android.twoactivities.extra.DATE";
+    public static final String EXTRA_PRIORITY =
+            "com.example.android.twoactivities.extra.PRIORITY";
+    public static final String EXTRA_DESC =
+            "com.example.android.twoactivities.extra.DESC";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +79,15 @@ public class RemoveTaskActivity extends MainActivity implements AdapterView.OnIt
     }
 
     public void removeTask(View view) {
+        Intent replyIntent = new Intent();
+        replyIntent.putExtra(EXTRA_ID, target.getId());
+        replyIntent.putExtra(EXTRA_NAME, target.getName());
+        replyIntent.putExtra(EXTRA_DATE, target.getDueDate());
+        replyIntent.putExtra(EXTRA_PRIORITY, target.getPriority());
+        replyIntent.putExtra(EXTRA_DESC, target.getDescription());
 
-        myDBHandler.deleteTask(target);
+        setResult(RESULT_OK,replyIntent);
+        finish();
 
     }
 }
